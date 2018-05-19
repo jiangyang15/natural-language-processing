@@ -1,0 +1,27 @@
+Table for part3.2
+Training Size ------ Training Accuracy ------ Test Accuracy
+500                  85.7                     54.3175
+1000                 82.65                    50.4178
+1500                 81.667                   50.9749
+2000                 82.125                   53.7604
+2500                 82.7                     52.9248
+3000                 80.6833                  52.6462
+3500                 80.57                    48.1894
+4000                 81.95                    48.468
+4500                 82.54                    52.6462
+5000                 82.03                    51.8106
+5500                 82.17                    51.8106
+6000                 80.625                   48.468
+6500                 81.4538                  52.3677
+7000                 82.0143                  49.5822
+7500                 80.5533                  49.4467
+8000                 81.0688                  49.3036
+8500                 80.8176                  49.3036
+9000                 81.2667                  50.1393
+9500                 80.7263                  54.5961
+10000                81.33                    53.2033
+
+As we can see on the table, as training size increase, there is 
+no obvious increase on the training/testing accuracy. The reason
+behind it may be the features we use are not effective enough, which
+means the bottle neck is feature selection.

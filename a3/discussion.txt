@@ -1,0 +1,203 @@
+
+Part 2:
+
+The default value I used for the first time is M = 8, max_iter = 150, epsilon = 0.5, with 30 speaker as data set. The test result is 100%. I am measuring accuracy as this way: if real speaker is A, and the top five potential speakers are A, B, C, D, E, then the score will be 5 out of 5. If the top five are B, C, A, D, E, then the score will be 3 out of 5. By using this metrics, I get the following results:
+
+1. epsilon from 10 to 0.1:
+
+epsilon = 0.1 -- 100%
+epsilon = 1 -- 100%
+epsilon = 10 -- 96.67%
+
+As I can tell from the results, as epsilon going up, GMM may not be fully converged, so the accuracy going down.
+
+2. M from 1 to 8:
+
+M = 1 -- 86.67%
+M = 4 -- 93.33%
+M = 8 -- 100%
+
+This means as M going up, the model use more accurate discrete GM to describe the probablity, hence accuracy goes up.
+
+3. S from 10 to 30:
+
+S = 10 -- 36.67%
+S = 20 -- 71.67%
+S = 30 -- 100%
+
+The result showed clearly as training speakers goes up, more info about speakers are stored in model, so accurate goes up.
+
+Question 1:
+
+The way I can think of is to relax the assumption that cov matrix are diagnol. In real world, there should be some correlation between different coeffecients. If we take this into consideration, we can improve the result.
+
+Question 2:
+
+We can setup a threshold of log likelihood. When all numbers go below this threshold, we have confidence that it belongs to no speaker.
+
+Question 3:
+
+Nerual Network may be a good choice. Another way to to have SVM classifier, but it may require some more advance techniques to prepare the data.
+
+Part 3:
+
+The following table represents the accuracy based on different paramters:
+(please note for some tests I only test on a subset tests by sampling, to save some time, so the accuracy may not be fully accuate)
+
+M | Number of states | Dimensionality of Data | Training size | Accuracy
+8   3                  14                       All             36.97%
+4   3                  14                       All             34.88%
+
+8   3                  14                       All             36.97%
+8   3                  8                        All             23.87%
+
+8   3                  14                       All             36.97%
+8   4                  14                       All             39.89%
+
+8   3                  14                       All             36.97%
+8   3                  14                       Half            22.11%
+
+As we can see from table, increasing demensionality and training size will largely increase the accuracy, while increasing M and number of states will only increase a little bit.
+
+Results for Part3.3:
+----------------------------
+Total:
+SE =
+
+    0.1731
+
+
+IE =
+
+    0.0385
+
+
+DE =
+
+    0.0462
+
+
+LEV_DIST =
+
+    0.2577
+
+-----
+ref:Now here is truly a marvel.
+hypo:Now here is truly hey marvel.
+se 0.166667, ie 0.000000, de 0.000000 
+-----
+ref:The cartoon features a muskrat and a tadpole.
+hypo:Cat tune features a muskrat and a tadpole.
+se 0.250000, ie 0.000000, de 0.000000 
+-----
+ref:Just let me die in peace.
+hypo:Just let me die in peace.
+se 0.000000, ie 0.000000, de 0.000000 
+-----
+ref:The sculptor looked at him, bugeyed and amazed, angry.
+hypo:The sculptor looked at him, bug I'd and amazed, angry.
+se 0.111111, ie 0.111111, de 0.000000 
+-----
+ref:A flash illumined the trees as a crooked bolt twigged in several directions.
+hypo:A flash illuminated the trees as crook bolt tweaked several directions.
+se 0.230769, ie 0.000000, de 0.153846 
+-----
+ref:This is particularly true in site selection.
+hypo:This is particularly true sight selection.
+se 0.142857, ie 0.000000, de 0.142857 
+-----
+ref:We would lose our export markets and deny ourselves the imports we need.
+hypo:We would lose sour expert markets deny ourselves the imports we need.
+se 0.153846, ie 0.000000, de 0.076923 
+-----
+ref:Count the number of teaspoons of soysauce that you add.
+hypo:Compton number of teaspoons of so he sauce that you add.
+se 0.200000, ie 0.200000, de 0.100000 
+-----
+ref:Finally he asked, do you object to petting?
+hypo:Finally he asked, do you object to petting?
+se 0.000000, ie 0.000000, de 0.000000 
+-----
+ref:Draw every outer line first, then fill in the interior.
+hypo:Draw every other line first, then fill into interior.
+se 0.200000, ie 0.000000, de 0.100000 
+-----
+ref:Change involves the displacement of form.
+hypo:Change involves the displacement of fawn.
+se 0.166667, ie 0.000000, de 0.000000 
+-----
+ref:To his puzzlement, there suddenly was no haze.
+hypo:Two is puzzle mint, there suddenly was no haze.
+se 0.375000, ie 0.125000, de 0.000000 
+-----
+ref:Don't ask me to carry an oily rag like that.
+hypo:Donna's me to carry oily rag like that.
+se 0.100000, ie 0.000000, de 0.200000 
+-----
+ref:The full moon shone brightly that night.
+hypo:The the full moon shone brightly that night.
+se 0.000000, ie 0.142857, de 0.000000 
+-----
+ref:Tugboats are capable of hauling huge loads.
+hypo:Tugboats are capable falling huge loads.
+se 0.142857, ie 0.000000, de 0.142857 
+-----
+ref:Did dad do academic bidding?
+hypo:Did tatoo academic bidding?
+se 0.200000, ie 0.000000, de 0.200000 
+-----
+ref:She had your dark suit in greasy wash water all year.
+hypo:See add your dark suit and greasy wash water all year.
+se 0.272727, ie 0.000000, de 0.000000 
+-----
+ref:The thick elm forest was nearly overwhelmed by Dutch Elm Disease.
+hypo:The thick forest was nearly over helmed by Dutch Elm Disease.
+se 0.090909, ie 0.090909, de 0.090909 
+-----
+ref:Count the number of teaspoons of soysauce that you add.
+hypo:Cow ten number of teaspoons of soysauce that you add.
+se 0.200000, ie 0.000000, de 0.000000 
+-----
+ref:Norwegian sweaters are made of lamb's wool.
+hypo:Norwegian sweaters are made of lamb's wool.
+se 0.000000, ie 0.000000, de 0.000000 
+-----
+ref:We think differently.
+hypo:We think differently.
+se 0.000000, ie 0.000000, de 0.000000 
+-----
+ref:A toothpaste tube should be squeezed from the bottom.
+hypo:A too pays too should be squeezed from the bottom.
+se 0.222222, ie 0.111111, de 0.000000 
+-----
+ref:Ran away on a black night with a lawful wedded man.
+hypo:Ran away on a black night with an awful wedded man.
+se 0.181818, ie 0.000000, de 0.000000 
+-----
+ref:Don't ask me to carry an oily rag like that.
+hypo:Down ask me to carry an oily rag like that.
+se 0.100000, ie 0.000000, de 0.000000 
+-----
+ref:Don't ask me to carry an oily rag like that.
+hypo:Don't ask me to carry an oily rag like that.
+se 0.000000, ie 0.000000, de 0.000000 
+-----
+ref:Index words and electronic switches may be reserved in the following ways.
+hypo:Index words an electronic switches may be reserved in the following way.
+se 0.166667, ie 0.000000, de 0.000000 
+-----
+ref:The avalanche triggered a minor earthquake.
+hypo:The avalanche triggered minor earth way.
+se 0.500000, ie 0.000000, de 0.000000 
+-----
+ref:Don't ask me to carry an oily rag like that.
+hypo:Donna's me to carry an oily rag like that.
+se 0.100000, ie 0.000000, de 0.100000 
+-----
+ref:The thick elm forest was nearly overwhelmed by Dutch Elm Disease.
+hypo:The thick elm for his was nail he over well bye touch Elm Disease.
+se 0.454545, ie 0.272727, de 0.000000 
+-----
+ref:When all else fails, use force.
+hypo:When hall else fails, use forks.
+se 0.333333, ie 0.000000, de 0.000000 

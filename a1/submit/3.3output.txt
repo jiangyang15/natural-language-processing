@@ -1,0 +1,67 @@
+=== Attribute Selection on all input data ===
+
+Search Method:
+        Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+        Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.05961   19 Average length of tokens
+ 0.02371    5 Past-tense verbs
+ 0.01754    1 First person pronouns
+ 0.01527    2 Second person pronouns
+ 0.01306   14 Adverbs
+ 0.0092    11 Ellipses
+ 0.00916    3 Third person pronouns
+ 0.00643   10 Parentheses
+ 0          4 Coordinating conjunctions
+ 0          6 Future-tense verbs
+ 0         16 Modern slang acronyms
+ 0         20 Number of sentences
+ 0         17 Words all in upper case
+ 0         18 Average length of sentences
+ 0         15 wh-words
+ 0         12 Common nouns
+ 0         13 Proper nouns
+ 0          7 Commas
+ 0          9 Dashes
+ 0          8 Colons and semi-colons
+
+Selected attributes: 19,5,1,2,14,11,3,10,4,6,16,20,17,18,15,12,13,7,9,8 : 20
+
+== Attribute Selection on all input data ===
+
+Search Method:
+        Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 21 class):
+        Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.031165   19 Average length of tokens
+ 0.017752    1 First person pronouns
+ 0.016066    5 Past-tense verbs
+ 0.012111    2 Second person pronouns
+ 0.00763    14 Adverbs
+ 0.00521    18 Average length of sentences
+ 0.004121    9 Dashes
+ 0.002892   13 Proper nouns
+ 0.002461   11 Ellipses
+ 0.002288   20 Number of sentences
+ 0.00196     7 Commas
+ 0.001614   12 Common nouns
+ 0.001297    4 Coordinating conjunctions
+ 0.001211    3 Third person pronouns
+ 0.001118   10 Parentheses
+ 0.000739   16 Modern slang acronyms
+ 0.000549    6 Future-tense verbs
+ 0.0004     15 wh-words
+ 0          17 Words all in upper case
+ 0           8 Colons and semi-colons
+
+Selected attributes: 19,1,5,2,14,18,9,13,11,20,7,12,4,3,10,16,6,15,17,8 : 20
+
+
+As we can see, 19 (Average length of tokens) and 1 (First person pronouns) and 2(Second person pronouns) and 5 (Past-tense verbs) all remain high rank in both small and large training size. It means these features are very
+important in this type of classification. The reason might be a positive voice may have larger lenght of tokens, more first & second person pronouns with less past-tensed words.

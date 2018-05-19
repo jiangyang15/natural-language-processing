@@ -1,0 +1,7 @@
+	theta = 0           theta = 0.01         theta = 0.02       theta = 0.03        theta = 0.04
+e	13.7807799448714	37.4611604700451	40.2993519624932	42.6801469233341	44.7703133196631
+f	13.0644561161084	36.7256283402390	40.4026184698318	43.3918090679702	45.9850059463151
+
+As I can see from the result, once theta is introduced, the perplexity increases. This make sense because
+a large vocaburary size is added to the equation. In order to pick the best theta, we need to combine with
+other information.
